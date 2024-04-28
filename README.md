@@ -16,7 +16,15 @@ And other for add ...
 * https://wiki.archlinux.org/title/Logitech_MX_Master
 * https://linux-hardware.org/?id=usb:046d-c08a
 * https://askubuntu.com/questions/1122259/logitech-mouse-mx-vertical-ubuntu-18-software
-* 
+
+
+Code of Linux for undestand it:
+
+  * https://github.com/torvalds/linux/blob/v5.5-rc5/include/uapi/linux/input.h#L30
+
+Structure of timeval em c++:
+
+  * https://man7.org/linux/man-pages/man3/timeval.3type.html
 
 
 Mouse used
@@ -48,6 +56,9 @@ Shorcuts :
 ### Click button 1 and Go Down  ->
 ### Click button 1              ->
 ### Click button 2              -> 
+### Double click on button 1    ->
+### Double click on button 2    ->
+### Tiple click on button 1     ->
 
 
 This is a service make with Java and runing as root or input user.
