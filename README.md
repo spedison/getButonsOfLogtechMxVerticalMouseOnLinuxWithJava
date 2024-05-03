@@ -72,6 +72,12 @@ Then I can think in application with actions as
 }
 ```
 
+For do no have doubts: I show number of buttons used in this project
+
+
+<img src="./doc/images/mouse_defauls_buttons.jpg" width="300" height="300" />
+<img src="./doc/images/mouse_extra_buttons.jpg" width="300" height="300" />
+
 With this configuration, I can test with simple click button.
 
 ### Examples with xdotools.

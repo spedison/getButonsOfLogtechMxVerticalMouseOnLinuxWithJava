@@ -9,10 +9,10 @@ class BytesUtilsTest {
 
     @Test
     void bytesToInt() {
-
+        BytesUtils bytesUtils = new BytesUtils();
         byte[] bytes = new byte[]{0x01, 0x0A, 0, 0, 1, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-        int valDir = BytesUtils.bytesToInt(bytes, 0,  false);
-        int valRev = BytesUtils.bytesToInt(bytes, 1,  false);
+        int valDir = bytesUtils.bytesToInt(bytes, 0,  false);
+        int valRev = bytesUtils.bytesToInt(bytes, 1,  false);
         Assertions.assertEquals(0x010A0000, valDir);
         Assertions.assertEquals(0x0A000001, valRev);
 

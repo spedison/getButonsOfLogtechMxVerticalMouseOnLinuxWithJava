@@ -17,9 +17,7 @@ public class EventByteData {
 
     final static int VALUE_LEN = 4;
 
-    final BytesUtils bytesUtils = new BytesUtils();
-
-    final byte[] arrayOfBytesEvent;
+    BytesUtils bytesUtils = new BytesUtils();
 
     double time;
     long timeSeconds;
@@ -28,28 +26,12 @@ public class EventByteData {
     int type;
     int code;
 
-    public EventByteData() {
-        this.arrayOfBytesEvent = new byte[24];
-    }
-
-    public EventByteData(byte[] arrayOfBytesEvent) {
-        if (arrayOfBytesEvent == null || arrayOfBytesEvent.length != 24) {
-            throw new RuntimeException("Problemas ao ler o array de bytes");
-        }
-        this.arrayOfBytesEvent = arrayOfBytesEvent;
-    }
-
-    public byte[] getBuffer() {
-        return this.arrayOfBytesEvent;
-    }
-
     public void loadFromBytes(byte[] arrayOfBytesEvent) {
 
         if (arrayOfBytesEvent == null || arrayOfBytesEvent.length != 24) {
             throw new RuntimeException("Problemas ao ler o array de bytes");
         }
-        
-        System.arraycopy(arrayOfBytesEvent, 0, this.arrayOfBytesEvent, 0, 24);
+
         timeSeconds = bytesUtils.bytesToLong(arrayOfBytesEvent, START_TIME_SEC, true);
         timeMicroSeconds = bytesUtils.bytesToLong(arrayOfBytesEvent, START_TIME_MCS, true);
         time = getTimeSeconds() + (getTimeMicroSeconds() * 1E-6);

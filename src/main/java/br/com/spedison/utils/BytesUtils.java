@@ -9,12 +9,16 @@ import java.util.StringJoiner;
 
 public class BytesUtils {
 
+    byte[] bufferShort = new byte[2];
+    byte[] bufferInt = new byte[4];
+    byte[] bufferLong = new byte[8];
+
     public BytesUtils() {
     }
 
     private ByteBuffer getByteBuffer(byte[] bytes, int start, int len, boolean rev) {
 
-        byte[] localBuffer = new byte[len];
+        byte[] localBuffer = (len == 2 ? bufferShort : (len == 4 ? bufferInt : bufferLong));
         int end = start + localBuffer.length;
 
         if (end > bytes.length)
@@ -76,11 +80,11 @@ public class BytesUtils {
         return getByteBuffer(bytes, start, 8, reverse).getLong();
     }
 
-    public String bytesToHex(byte[] bytes) {
+    public static  String bytesToHex(byte[] bytes) {
         return bytesToHex(bytes, 0, bytes.length);
     }
 
-    public String bytesToHex(byte[] bytes, int start, int end) {
+    public static String bytesToHex(byte[] bytes, int start, int end) {
         StringJoiner joiner = new StringJoiner("::");
         for (int i = start; (i < bytes.length && i < end); i++) {
             joiner.add(String.format("%02X", bytes[i]));
@@ -88,11 +92,11 @@ public class BytesUtils {
         return joiner.toString();
     }
 
-    public void reverseBytes(byte[] bytes) {
+    public static void reverseBytes(byte[] bytes) {
         ArrayUtils.reverse(bytes);
     }
 
-    public void changeBytes(byte[] bytes, int pos1, int pos2) {
+    public static void changeBytes(byte[] bytes, int pos1, int pos2) {
         byte tmp = bytes[pos1];
         bytes[pos1] = bytes[pos2];
         bytes[pos2] = tmp;
