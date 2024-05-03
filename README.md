@@ -1,4 +1,4 @@
-# Project :: getButonsOnLogtechMxVerticalOnLinuxWithLinux
+# Get Butons Of LogtechMxVertical Mouse On Linux With Java
 
 I Like so much of Java and Linux.
 
@@ -18,7 +18,7 @@ And other for add ...
 * https://askubuntu.com/questions/1122259/logitech-mouse-mx-vertical-ubuntu-18-software
 
 
-Code of Linux for undestand it:
+Code of Linux for undestand it message structure:
 
   * https://github.com/torvalds/linux/blob/v5.5-rc5/include/uapi/linux/input.h#L30
 
@@ -34,18 +34,56 @@ Mouse used
 * 
 
 
-
-
 And I see this video:
 https://www.youtube.com/watch?v=a8w71o8YB0g
-
-
-
 
 
 And with this, i decide make this project for make 6 diferents tasks (as shortcuts) on my linux.
 
 Simple Project for Make shotcuts using moving and click alternatives keys.
+
+I have any application then use click buttons, for example: Firefox for "go next" and "go previus".
+
+But I no have events for others application as xterm. Becase this and I'll use mouse and application (or name of window).
+
+Ok, but how can found current application for where is mouse pointer? The solution is xdotool program.
+
+With it we can make action mouse buttons with application used/focused.
+
+Then I can think in application with actions as
+
+```
+"Configuration":{
+  "delayMaxBetweenClickAndLeave":"100ms",
+  "delayMaxBetweenClicks": "350ms",
+  "NoWindows": {
+     "OnClickButton1": {
+     "ignore":false,
+     "run":"IntelliJ"
+     }
+  },
+  
+  "Window Name Application RegExp" : {
+    "OnClickButton1" : {
+        "ignore": false,
+        "run" : "Program to execute"
+     }
+  }
+}
+```
+
+With this configuration, I can test with simple click button.
+
+### Examples with xdotools.
+
+ * Get title of windows focused or active window :
+
+``` xdotool getactivewindow getwindowname ```
+
+ * Get pid of process this windows
+
+``` xdotool getactivewindow getwindowpid ```
+
 
 Shorcuts :
 ----------
@@ -59,7 +97,6 @@ Shorcuts :
 ### Double click on button 1    ->
 ### Double click on button 2    ->
 ### Tiple click on button 1     ->
-
 
 This is a service make with Java and runing as root or input user.
 
@@ -91,9 +128,10 @@ Use cases :
 
   * #### Use Case 7 - Exit
 
-Dependeces.
+Dependencies.
 ------------
 * Java 21
 * evemu-tools
 * evtest
+* xdotools
 
